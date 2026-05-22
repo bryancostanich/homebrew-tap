@@ -1,6 +1,6 @@
 cask "lattice" do
-  version "0.7"
-  sha256 "5add3673ed9597eb35ca7370a504da703a241ba62bdefdd017742bf2396bed88"
+  version "0.8"
+  sha256 "8246afbb58c215761506d50f99313632f66269d3645db71fc10d8ef9ed0496cf"
 
   url "https://github.com/bryancostanich/lattice/releases/download/v#{version}/Lattice-v#{version}.zip"
   name "Lattice"
