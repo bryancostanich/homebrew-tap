@@ -1,6 +1,6 @@
-# cercano-ai/tap
+# bryancostanich/tap
 
-Canonical Homebrew tap for Cercano, with the existing Lattice cask retained.
+Personal Homebrew tap maintained by bryancostanich, with the existing Lattice cask retained.
 
 ## Usage
 
@@ -10,16 +10,15 @@ brew tap cercano-ai/tap
 
 ## Available formulae
 
-- **[cercano](https://github.com/cercano-ai/Cercano)** — AI development agent and terminal client for Apple Silicon Macs (macOS 12 or later; deployment-target floor).
+- **[cercano](https://github.com/cercano-ai/Cercano)** — **DEPRECATED**: This formula is deprecated and no longer maintained. Please use the new standalone installation:
   ```sh
-  brew install cercano-ai/tap/cercano
-  cercano-cli
+  brew install cercano-ai/cercano/cercano
   ```
-  Installs both `cercano` (agent) and `cercano-cli` (terminal client).
-  No models, provider credentials, or login service are installed automatically.
+  The new installation provides the same functionality with improved support and maintenance. See [github.com/cercano-ai/homebrew-cercano](https://github.com/cercano-ai/homebrew-cercano) for the new canonical tap.
 
+  For existing installations, you can continue using:
   ```sh
-  brew upgrade cercano
+  brew upgrade bryancostanich/tap/cercano
   ```
   After a successful install or upgrade, the post-install hook restarts a running
   agent owned by the same Homebrew installation at the configured endpoint.
@@ -35,33 +34,31 @@ brew tap cercano-ai/tap
   brew install --cask lattice
   ```
 
-## Organization migration
+## Cercano Formula Status
 
-This repository moved from `bryancostanich/homebrew-tap` to
-`cercano-ai/homebrew-tap`. Use the explicit `cercano-ai/tap/cercano` name for new
-standalone installations. Current Cercano releases require Apple Silicon and
-macOS 12 or later; the old `homebrew-cercano` co-processor tap is superseded and
-is not a supported standalone installation path. This move does not introduce
-Intel Mac or Linux standalone packages.
+The Cercano formula in this tap is deprecated. New installations should use the canonical standalone tap:
 
-### Existing standalone installations
+```sh
+brew install cercano-ai/cercano/cercano
+```
 
-You do not need to uninstall Cercano or delete configuration or conversations
-because of this ownership change. The old GitHub tap URL redirects to this
-repository, so an existing `bryancostanich/tap` installation can retain its tap
-name and continue using:
+This new tap provides the same functionality with improved support and maintenance. See [github.com/cercano-ai/homebrew-cercano](https://github.com/cercano-ai/homebrew-cercano) for details.
+
+### Existing installations
+
+Existing installations can continue to use this tap:
 
 ```sh
 brew update
 brew upgrade bryancostanich/tap/cercano
 ```
 
-The redirected tap clone and same-version upgrade check were verified in an
-isolated installation. This preserves the existing tap identity; it does not
-rewrite installed receipts to `cercano-ai/tap`, and a future-version upgrade has
-not been tested as part of the ownership migration. Use `cercano-ai/tap/cercano`
-for new installations. Do not untap the old tap while installed packages still
-reference it.
+After a successful install or upgrade, the post-install hook restarts a running
+agent owned by the same Homebrew installation at the configured endpoint.
+An absent agent is not started, and development-checkout agents are left alone.
+If the restart fails, follow the command's diagnostic before retrying
+`cercano restart-after-upgrade`. Configuration and conversation data are kept
+outside the Homebrew installation and are not deleted by `brew uninstall`.
 
 The v0.20.3 post-install restart command has a separately tracked
 [process-inspection issue](https://github.com/cercano-ai/Cercano/issues/55).
