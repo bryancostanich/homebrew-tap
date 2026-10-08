@@ -44,8 +44,29 @@ macOS 12 or later; the old `homebrew-cercano` co-processor tap is superseded and
 is not a supported standalone installation path. This move does not introduce
 Intel Mac or Linux standalone packages.
 
-Existing installations should retain their configuration and conversation data.
-Do not remove that data or uninstall the application as a migration shortcut.
-The supported tap-migration procedure must be verified against the transferred
-repository before being published. Lattice continues to use its existing
-release artifacts from `bryancostanich/lattice`.
+### Existing standalone installations
+
+You do not need to uninstall Cercano or delete configuration or conversations
+because of this ownership change. The old GitHub tap URL redirects to this
+repository, so an existing `bryancostanich/tap` installation can retain its tap
+name and continue using:
+
+```sh
+brew update
+brew upgrade bryancostanich/tap/cercano
+```
+
+The redirected tap clone and same-version upgrade check were verified in an
+isolated installation. This preserves the existing tap identity; it does not
+rewrite installed receipts to `cercano-ai/tap`, and a future-version upgrade has
+not been tested as part of the ownership migration. Use `cercano-ai/tap/cercano`
+for new installations. Do not untap the old tap while installed packages still
+reference it.
+
+The v0.20.3 post-install restart command has a separately tracked
+[process-inspection issue](https://github.com/cercano-ai/Cercano/issues/55).
+The package can be installed despite that post-install error; do not delete
+saved data in response.
+
+Lattice continues to use its existing release artifacts from
+`bryancostanich/lattice`.
