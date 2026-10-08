@@ -1,18 +1,18 @@
-# bryancostanich/tap
+# cercano-ai/tap
 
-Homebrew tap for my projects.
+Canonical Homebrew tap for Cercano, with the existing Lattice cask retained.
 
 ## Usage
 
 ```sh
-brew tap bryancostanich/tap
+brew tap cercano-ai/tap
 ```
 
 ## Available formulae
 
-- **[cercano](https://github.com/bryancostanich/Cercano)** — AI development agent and terminal client for Apple Silicon Macs (macOS 12 or later; deployment-target floor).
+- **[cercano](https://github.com/cercano-ai/Cercano)** — AI development agent and terminal client for Apple Silicon Macs (macOS 12 or later; deployment-target floor).
   ```sh
-  brew install bryancostanich/tap/cercano
+  brew install cercano-ai/tap/cercano
   cercano-cli
   ```
   Installs both `cercano` (agent) and `cercano-cli` (terminal client).
@@ -34,3 +34,18 @@ brew tap bryancostanich/tap
   ```sh
   brew install --cask lattice
   ```
+
+## Organization migration
+
+This repository moved from `bryancostanich/homebrew-tap` to
+`cercano-ai/homebrew-tap`. Use the explicit `cercano-ai/tap/cercano` name for new
+standalone installations. Current Cercano releases require Apple Silicon and
+macOS 12 or later; the old `homebrew-cercano` co-processor tap is superseded and
+is not a supported standalone installation path. This move does not introduce
+Intel Mac or Linux standalone packages.
+
+Existing installations should retain their configuration and conversation data.
+Do not remove that data or uninstall the application as a migration shortcut.
+The supported tap-migration procedure must be verified against the transferred
+repository before being published. Lattice continues to use its existing
+release artifacts from `bryancostanich/lattice`.

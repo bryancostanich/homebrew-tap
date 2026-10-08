@@ -2,8 +2,8 @@
 # Use a signed/notarized two-binary archive that includes restart-after-upgrade.
 class Cercano < Formula
   desc "AI-powered development tool with local/cloud model routing"
-  homepage "https://github.com/bryancostanich/Cercano"
-  url "https://github.com/bryancostanich/Cercano/releases/download/v0.20.3/cercano-0.20.3-darwin-arm64.tar.gz"
+  homepage "https://github.com/cercano-ai/Cercano"
+  url "https://github.com/cercano-ai/Cercano/releases/download/v0.20.3/cercano-0.20.3-darwin-arm64.tar.gz"
   version "0.20.3"
   sha256 "ad8967c18bc487ebbd5265b20c2ff734492ee1242429dfc8f47d1f3d74b3c2aa"
   license "MIT"
